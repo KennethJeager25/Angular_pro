@@ -1,0 +1,33 @@
+<h3>Añadir Estante</h3>
+<br>
+<form  [formGroup]="FormEstante" (ngSubmit)="add()">
+    <label for="">Nombre</label><br>
+    <input type="text"class="form-control" placeholder="Añadir Estante"class="form-control" 
+    formControlName="estante" #estante [class.is-invalid]="nombreValidate"><br>
+    <input type="submit"[disabled]="FormEstante.invalid" class="btn btn-primary" value="Añadir estante" (click)="estante.value=''">
+</form>
+
+<br><br>
+<hr>
+<table class="table table-hover">
+    <thead class="table-danger">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOMBRE</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estante of estantes">
+        <th scope="row">{{estante.id}}</th>
+        <td>{{estante.estante}}</td>
+        <td>
+            <button type="submit" class="btn btn-danger"(click)="delete(estante)">ELIMINAR</button>
+        </td>
+        <td>
+            <button type="submit" class="btn btn-warning"><a routerLink="/actuestante/{{estante.id}}">EDITAR</a></button>
+        </td>
+      </tr>
+    </tbody>
+</table>

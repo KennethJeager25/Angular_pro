@@ -1,0 +1,15 @@
+<h3>LIBROS</h3>
+<br><br>
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let lib of libros">
+            <div class="card" style="width: 16rem;height:auto">
+                <img src="{{lib.portada}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{lib.titulo}}</h5><br>
+                  <a routerLink="/detallelibro/{{lib.id}}" class="btn btn-primary">VER LIBRO</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

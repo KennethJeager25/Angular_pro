@@ -1,0 +1,42 @@
+<img src="assets/log.png" alt="">
+<h2>Nuevo Usuario</h2>
+<form class="form-sing1n animated fadeIn" autocomplete="off"[formGroup]="registerFrom" (ngSubmit)="register()">
+    <label for="">Nombre</label>
+    <input type="text"class="form-control" placeholder="Escribe el nombre"[class.is-invalid]="registerFrom.get('nombre')?.touched 
+    && registerFrom.get('nombre')?.invalid" 
+    type="text" class="form-control" 
+    formControlName="nombre">
+    <div
+    *ngIf="registerFrom.get('nombre')?.touched 
+    && registerFrom.get('nombre')?.invalid">
+      <div class="msgError"> El usuario debe contener al menos 3 caracteres</div>
+    </div>
+    <br><br>
+    <label for="">Correo</label>
+    <input type="email"class="form-control" placeholder="Escribe el correo"[class.is-invalid]="registerFrom.get('email')?.touched 
+    && registerFrom.get('email')?.invalid" 
+    type="text" class="form-control" 
+    formControlName="email">
+    <div
+      *ngIf="registerFrom.get('email')?.touched 
+      && registerFrom.get('email')?.invalid">
+        <div class="msgError"> Por favor inserte un correo válido </div>
+      </div>
+    <br><br>
+    <label for="" class="form-label">Contraseña</label>
+    <input type="password"class="form-control" placeholder="Escribe la contraseña"[class.is-invalid]="registerFrom.get('password')?.touched 
+    && registerFrom.get('password')?.invalid"pattern="(?=.{10,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?\W).*$"  
+    formControlName="password">
+    <div
+    *ngIf="registerFrom.get('password')?.touched 
+    && registerFrom.get('password')?.invalid">
+      <div class="msgError"> La contraseña debe incluir al menos 10 caracteres, usar al menos una mayúscula, una minúscula y un caracter especial</div>
+    </div>
+    <br><br>
+    <div class="d-grid gap-2">
+        <input type="submit"[disabled]="registerFrom.invalid" class="btn btn-primary" value="Enviar">
+    </div>
+</form>
+<div class="centrar">
+    <a routerLink="/login">Ya tienes una cuenta?</a>
+</div>

@@ -1,0 +1,7 @@
+<form [formGroup]="FormPasillo"(ngSubmit)="update()">
+    <label for="cate-nombre"> Nuevo Pasillo</label><br>
+    <input id="cate-nombre" type="number"class="form-control" placeholder="Escribe el nuevo pasillo"class="form-control" 
+    formControlName="pasillo"[class.is-invalid]="nombreValidate"min="1" max="100"><br>
+    <input type="submit"[disabled]="FormPasillo.invalid" class="btn btn-primary" value="Guardar">&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-info" (click)="goBack()">volver</button>
+</form>

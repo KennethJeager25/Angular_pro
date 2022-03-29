@@ -1,0 +1,30 @@
+<h3>Prestamos</h3>
+<br><br>
+<table class="table table-hover">
+    <thead class="table-danger">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">LIBRO</th>
+        <th scope="col">CLIENTE</th>
+        <th scope="col">Fecha_Entrega</th>
+        <th scope="col">ENTREGADO</th>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pres of prestamos">
+        <td>{{pres.id}}</td>
+        <td>{{pres.libro}}</td>
+        <td>{{pres.cliente}}</td>
+        <td>{{pres.Fecha_Entrega}}</td>
+        <td>{{pres.Entregado}}</td>
+        <td>
+            <button type="submit" class="btn btn-danger" (click)="delete(pres)">ELIMINAR</button>
+        </td>
+        <td>
+            <button type="submit" class="btn btn-warning"><a routerLink="/actuaestado/{{pres.id}}/{{pres.libro_id}}">VER</a></button>
+        </td>
+      </tr>
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+<h3>Añadir Ubicacion</h3>
+<br>
+<form [formGroup]="FormUbicacion" (ngSubmit)="add()">
+    <label for="">Pasillo</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="pasillo"[class.is-invalid]="pasilloValidate">
+        <option *ngFor="let pasi of pasillos"[value]="pasi.id">{{pasi.pasillo}}</option>
+    </select><br>
+    <label for="">Estante</label><br>
+    <select type="number"class="form-select" aria-label="Default select example"formControlName="estante"[class.is-invalid]="estanteValidate">
+        <option *ngFor="let estante of estantes"[value]="estante.id">{{estante.estante}}</option>
+    </select><br>
+    <input type="submit" class="btn btn-primary" value="Añadir Ubicacion" >
+</form>
+<br><br>
+<hr>
+<table class="table table-hover">
+    <thead class="table-danger">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Pasillo</th>
+        <th scope="col">Estante</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ubi of ubicaciones">
+        <th scope="row">{{ubi.id}}</th>
+        <td>{{ubi.pasillo}}</td>
+        <td>{{ubi.estante}}</td>
+        <td>
+            <button type="submit" class="btn btn-danger"(click)="delete(ubi)">ELIMINAR</button>
+        </td>
+        <td>
+            <button type="submit" class="btn btn-warning"><a routerLink="/actuaubicacion/{{ubi.id}}">EDITAR</a></button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+

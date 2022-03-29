@@ -1,0 +1,28 @@
+<div *ngFor="let lib of detalle">
+    <div class="container" id="colorbl" style="border: white 2px solid;"> <br>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 text-center"> <br>
+                <img src="{{lib.portada}}"width="300px" height="350px" style="border: white 2px solid;">
+            </div> 
+            <div class="col-lg-6 col-sm-12" style="color: white;"> <br>
+                <h3>{{lib.titulo}}</h3>
+                <p>Categoria:{{lib.categoria}}</p> 
+                <p>Descripción:{{lib.sinopsis}}
+                </p>
+                <div *ngIf="estado">
+                    <form [formGroup]="FormPrestamo"(ngSubmit)="add()">
+                        <input style='display: none;'type='checkbox' disable='' checked='' name='cine' value='$fila->id_cine'
+                         formControlName="libro"#libro [class.is-invalid]="libroValidate">
+                        <input style='display: none;'type='checkbox' disable='' checked='' name='lugar' value='$fila->id_lugar'
+                         formControlName="cliente"#cliente [class.is-invalid]="clienteValidate">
+                         <input type="submit" class="btn btn-primary" value="HACER PRESTAMO">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-info" (click)="goBack()">VOLVER</button>
+                    </form>
+                </div>
+                <div *ngIf="!estado">
+                    <button type="button" class="btn btn-info" (click)="goBack()">VOLVER</button>
+                </div>
+                <h3>{{mensaje}}</h3>
+            </div> 
+    </div> <br>
+</div>

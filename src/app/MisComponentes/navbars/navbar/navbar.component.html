@@ -1,0 +1,69 @@
+  <ng-container>
+    <div [ngSwitch]="rol">
+      <!-- //NAVBAR ADMIN -->
+      <div *ngSwitchCase="1">
+        <div class="navbar">
+          <ul>
+            <a routerLink="/inicio"><img src="./assets/log.png" class="logo" alt="Main Logo"></a>
+              <li><a routerLink="/inicio">BOOKSITE</a></li>
+              <li><a routerLink="/inicio">HOME</a></li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    EDITAR
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: black;">
+                    <li><a class="dropdown-item" routerLink="/mosUser"style="color: black;">USUARIOS</a></li>
+                    <li><a class="dropdown-item" routerLink="/prestamos"style="color: black;">PRESTAMOS</a></li>
+                    <li><a class="dropdown-item" routerLink="/autores"style="color: black;">AUTOR</a></li>
+                    <li><a class="dropdown-item" routerLink="/mosCatego"style="color: black;">CATEGORIAS</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" routerLink="/editorial"style="color: black;">EDITORIAL</a></li>
+                    <li><a class="dropdown-item" routerLink="/genero"style="color: black;">GENERO</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" routerLink="/estante"style="color: black;">ESTANTE</a></li>
+                    <li><a class="dropdown-item" routerLink="/pasillos"style="color: black;">PASILLO</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" routerLink="/ubicaciones"style="color: black;">UBICACION</a></li>
+                    <li><a class="dropdown-item" routerLink="/libros"style="color: black;">LIBRO</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/prestamoUser">MIS PRESTAMOS</a>
+               </li>
+                <li class="nav-item">
+                  <a (click)="cerrar()">CERRAR SESION</a>
+              </li>
+          </ul>    
+        </div>
+      </div>
+      <!-- NAVBAR CLIENTE -->
+      <div *ngSwitchCase="2">
+        <div class="navbar">
+          <ul>
+            <a routerLink="/inicio"><img src="./assets/log.png" class="logo" alt="Main Logo"></a>
+              <li><a routerLink="/inicio">BOOKSITE</a></li>
+              <li><a routerLink="/inicio">HOME</a></li>
+              <li class="nav-item">
+                <a routerLink="/prestamoUser">MIS PRESTAMOS</a>
+            </li>
+                <li class="nav-item">
+                  <a (click)="cerrar()">CERRAR SESION</a>
+              </li>
+          </ul>
+      
+        </div>
+      </div>
+      <!-- NAVBAR SIN SESION -->
+      <div *ngSwitchDefault>
+        <div class="navbar">
+          <ul>
+              <a routerLink="/inicio"><img src="./assets/log.png" class="logo" alt="Main Logo"></a>
+              <li><a routerLink="/inicio">BOOKSITE</a></li>
+              <li><a routerLink="/inicio">HOME</a></li>
+              <li><a routerLink="/login">INICIAR SESION</a></li>
+              <li><a routerLink="/registraUsu">REGISTRAR</a></li>
+          </ul>
+          </div>
+      </div>
+    </div>
+  </ng-container>

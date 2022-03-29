@@ -1,0 +1,22 @@
+<img src="assets/log.png" alt="">
+<h2>Login</h2>
+<form class="form-sing1n animated fadeIn" autocomplete="off"[formGroup]="loginForm"(ngSubmit)="login()">
+  <label for="">Correo</label>
+  <input type="email"class="form-control" placeholder="Escribe el correo"[class.is-invalid]="loginForm.get('email')?.touched 
+  && loginForm.get('email')?.invalid" 
+  type="text" class="form-control" 
+  formControlName="email">
+  <div
+    *ngIf="loginForm.get('email')?.touched 
+    && loginForm.get('email')?.invalid">
+      <div class="msgError"> Por favor inserte un correo válido </div>
+  </div>
+  <br><br>
+  <label for="" class="form-label">Contraseña</label>
+  <input type="password"class="form-control" placeholder="Escribe la contraseña"formControlName="password"[class.is-invalid]="passwordValidate">
+  <br><br>
+  <div class="d-grid gap-2">
+      <input type="submit"[disabled]="loginForm.invalid" class="btn btn-primary" value="Iniciar sesion">
+  </div>
+</form>
+<a routerLink="/registraUsu">No tienes cuenta?</a>

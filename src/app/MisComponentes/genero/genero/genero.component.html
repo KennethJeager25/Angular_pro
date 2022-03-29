@@ -1,0 +1,33 @@
+<h3>Añadir Genero</h3>
+<br>
+<form  [formGroup]="FormGenero" (ngSubmit)="add()">
+    <label for="">Nombre</label><br>
+    <input type="text"class="form-control" placeholder="Añadir Genero"class="form-control" 
+    formControlName="nombre" #nombre [class.is-invalid]="nombreValidate"><br>
+    <input type="submit"[disabled]="FormGenero.invalid" class="btn btn-primary" value="Añadir genero" (click)="nombre.value=''">
+</form>
+
+<br><br>
+<hr>
+<table class="table table-hover">
+    <thead class="table-danger">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOMBRE</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let genero of generos">
+        <th scope="row">{{genero.id}}</th>
+        <td>{{genero.nombre}}</td>
+        <td>
+            <button type="submit" class="btn btn-danger"(click)="delete(genero)">ELIMINAR</button>
+        </td>
+        <td>
+            <button type="submit" class="btn btn-warning"><a routerLink="/actugenero/{{genero.id}}">EDITAR</a></button>
+        </td>
+      </tr>
+    </tbody>
+</table>

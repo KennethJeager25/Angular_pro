@@ -1,0 +1,35 @@
+<h3>Actualizar Libro</h3>
+<br><br>
+<form [formGroup]="FormLibro" (ngSubmit)="update()">
+    <label for="">Titulo</label><br>
+    <input type="text"class="form-control" placeholder="Añadir titulo"class="form-control" 
+    formControlName="titulo" #titulo [class.is-invalid]="tituloValidate"><br>
+    <label for="">Sinopsis</label><br>
+    <textarea name="" id="" cols="30" rows="10"type="text"class="form-control" placeholder="Añadir sinopsis"class="form-control" 
+    formControlName="sinopsis" #sinopsis [class.is-invalid]="sinopsisValidate"></textarea><br>
+    <label for="">Portada</label><br>
+    <input type="text"class="form-control" placeholder="Añadir portada"class="form-control" 
+    formControlName="portada" #portada [class.is-invalid]="portadaValidate"><br>
+    <label for="">Stock</label><br>
+    <input type="text"class="form-control" placeholder="Añadir cantidad"class="form-control" 
+    formControlName="stock" #stock [class.is-invalid]="stockValidate"><br>
+    <label for="">Editorial</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="editorial"[class.is-invalid]="editorialValidate">
+        <option *ngFor="let edito of editoriales"[value]="edito.id">{{edito.nombre}}</option>
+    </select><br>
+    <label for="">Categoria</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="categoria"[class.is-invalid]="categoriaValidate">
+        <option *ngFor="let cate of categorias"[value]="cate.id">{{cate.nombre}}</option>
+    </select><br>
+    <label for="">Autor</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="autor"[class.is-invalid]="autorValidate">
+        <option *ngFor="let auto of autores"[value]="auto.id">{{auto.nombre}}</option>
+    </select><br>
+    <label for="">Ubicacion</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="ubicacion"[class.is-invalid]="ubicacionValidate">
+        <option *ngFor="let ubica of ubicacion"[value]="ubica.id">{{ubica.pasillo}}</option>
+    </select><br>
+    <input type="submit" class="btn btn-primary" value="Guardar">&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-info" (click)="goBack()">volver</button>
+</form>
+<br><br>

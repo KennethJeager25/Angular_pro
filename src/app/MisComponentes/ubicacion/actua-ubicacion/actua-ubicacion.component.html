@@ -1,0 +1,12 @@
+<form [formGroup]="FormUbicacion" (ngSubmit)="update()">
+    <label for="">Pasillo</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="pasillo"[class.is-invalid]="pasilloValidate">
+        <option *ngFor="let pasi of pasillos"[value]="pasi.id">{{pasi.pasillo}}</option>
+    </select><br>
+    <label for="">Estante</label><br>
+    <select type="number"class="form-select" aria-label="Default select example"formControlName="estante"[class.is-invalid]="estanteValidate">
+        <option *ngFor="let estante of estantes"[value]="estante.id">{{estante.estante}}</option>
+    </select><br>
+    <input type="submit" class="btn btn-primary" value="Guardar">&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-info" (click)="goBack()">volver</button>
+</form>

@@ -1,0 +1,33 @@
+<h3>Añadir Editoral</h3>
+<br>
+<form  [formGroup]="FormEditrial" (ngSubmit)="add()">
+    <label for="">Nombre</label><br>
+    <input type="text"class="form-control" placeholder="Añadir Editorial"class="form-control" 
+    formControlName="nombre" #nombre [class.is-invalid]="nombreValidate"><br>
+    <input type="submit"[disabled]="FormEditrial.invalid" class="btn btn-primary" value="Añadir editorial" (click)="nombre.value=''">
+</form>
+
+<br><br>
+<hr>
+<table class="table table-hover">
+    <thead class="table-danger">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOMBRE</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let editorial of editoriales">
+        <th scope="row">{{editorial.id}}</th>
+        <td>{{editorial.nombre}}</td>
+        <td>
+            <button type="submit" class="btn btn-danger"(click)="delete(editorial)">ELIMINAR</button>
+        </td>
+        <td>
+            <button type="submit" class="btn btn-warning"><a routerLink="/actuaEditorial/{{editorial.id}}">EDITAR</a></button>
+        </td>
+      </tr>
+    </tbody>
+</table>

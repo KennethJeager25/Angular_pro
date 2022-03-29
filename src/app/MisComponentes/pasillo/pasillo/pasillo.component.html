@@ -1,0 +1,33 @@
+<h3>Añadir Pasillo</h3>
+<br>
+<form  [formGroup]="FormPasillo" (ngSubmit)="add()">
+    <label for="">Nombre</label><br>
+    <input type="number"class="form-control" placeholder="Añadir Pasillo"class="form-control" 
+    formControlName="pasillo" #pasillo [class.is-invalid]="nombreValidate"min="1" max="100"><br>
+    <input type="submit"[disabled]="FormPasillo.invalid" class="btn btn-primary" value="Añadir Pasillo"(click)="pasillo.value=''">
+</form>
+
+<br><br>
+<hr>
+<table class="table table-hover">
+    <thead class="table-danger">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Pasillo</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pasillo of pasillos">
+        <th scope="row">{{pasillo.id}}</th>
+        <td>{{pasillo.pasillo}}</td>
+        <td>
+            <button type="submit" class="btn btn-danger"(click)="delete(pasillo)">ELIMINAR</button>
+        </td>
+        <td>
+            <button type="submit" class="btn btn-warning"><a routerLink="/actuapasillos/{{pasillo.id}}">EDITAR</a></button>
+        </td>
+      </tr>
+    </tbody>
+</table>

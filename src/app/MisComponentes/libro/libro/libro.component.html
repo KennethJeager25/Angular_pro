@@ -1,0 +1,49 @@
+<h3>Añadir Libro</h3>
+<form [formGroup]="FormLibro" (ngSubmit)="add()">
+    <label for="">Titulo</label><br>
+    <input type="text"class="form-control" placeholder="Añadir titulo"class="form-control" 
+    formControlName="titulo" #titulo [class.is-invalid]="tituloValidate"><br>
+    <label for="">Sinopsis</label><br>
+    <textarea name="" id="" cols="30" rows="10"type="text"class="form-control" placeholder="Añadir sinopsis"class="form-control" 
+    formControlName="sinopsis" #sinopsis [class.is-invalid]="sinopsisValidate"></textarea><br>
+    <label for="">Portada</label><br>
+    <input type="text"class="form-control" placeholder="Añadir portada"class="form-control" 
+    formControlName="portada" #portada [class.is-invalid]="portadaValidate"><br>
+    <label for="">Cantidad</label><br>
+    <input type="text"class="form-control" placeholder="Añadir cantidad"class="form-control" 
+    formControlName="stock" #stock [class.is-invalid]="stockValidate"><br>
+    <label for="">Editorial</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="editorial"[class.is-invalid]="editorialValidate">
+        <option *ngFor="let edito of editoriales"[value]="edito.id">{{edito.nombre}}</option>
+    </select><br>
+    <label for="">Categoria</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="categoria"[class.is-invalid]="categoriaValidate">
+        <option *ngFor="let cate of categorias"[value]="cate.id">{{cate.nombre}}</option>
+    </select><br>
+    <label for="">Autor</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="autor"[class.is-invalid]="autorValidate">
+        <option *ngFor="let auto of autores"[value]="auto.id">{{auto.nombre}}</option>
+    </select><br>
+    <label for="">Ubicacion</label><br>
+    <select type="number"class="form-select" aria-label="Default select example" formControlName="ubicacion"[class.is-invalid]="ubicacionValidate">
+        <option *ngFor="let ubica of ubicacion"[value]="ubica.id">{{ubica.pasillo}}</option>
+    </select><br>
+    <input type="submit" class="btn btn-primary" value="Añadir Libro">
+</form>
+<br><br>
+<hr>
+<h3>LIBROS</h3>
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let lib of libros">
+            <div class="card" style="width: 16rem;height:auto">
+                <img src="{{lib.portada}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{lib.titulo}}</h5><br>
+                  <button type="submit" class="btn btn-danger"(click)="delete(lib)">ELIMINAR</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <button type="submit" class="btn btn-warning"><a routerLink="/actualibro/{{lib.id}}">EDITAR</a></button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+table{
+    width: 50%;height:100%;margin: auto;
+    border: white 2px solid;
+
+}
+form{
+    width: 50%;height:100%;margin: auto;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+h3{
+    width: 50%;height:100%;margin: auto;text-align: center;
+    color: white;
+}
+img{
+    width: 255px;
+    height: 350px;
+}
+.content {
+    padding: 16px;
+}
+h5{
+    text-align: center;
+    color: black;
+}

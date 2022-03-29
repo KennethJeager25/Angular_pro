@@ -1,0 +1,18 @@
+<h3>Mis Prestamos</h3>
+<br><br>
+<table class="table table-hover">
+    <thead class="table-danger">
+      <tr>
+        <th scope="col">LIBRO</th>
+        <th scope="col">Fecha_Entrega</th>
+        <th scope="col">ENTREGADO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pres of prestamos">
+        <td>{{pres.libro}}</td>
+        <td>{{pres.Fecha_Entrega}}</td>
+        <td>{{pres.Entregado}}</td>
+      </tr>
+    </tbody>
+</table>

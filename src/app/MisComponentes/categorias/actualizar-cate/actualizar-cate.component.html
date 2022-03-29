@@ -1,0 +1,9 @@
+<div>
+    <form [formGroup]="actualizar"(ngSubmit)="update()">
+        <label for="cate-nombre"> Nuevo Nombre</label><br>
+        <input id="cate-nombre" type="text"class="form-control" placeholder="Escribe la nueva categoria"class="form-control" 
+        formControlName="nombre"[class.is-invalid]="nombreValidate"><br>
+        <input type="submit"[disabled]="actualizar.invalid" class="btn btn-primary" value="Guardar">&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-info" (click)="goBack()">volver</button>
+    </form>
+</div>
